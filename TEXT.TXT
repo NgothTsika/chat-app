@@ -1,0 +1,59 @@
+"use client";
+import { CldImage } from 'next-cloudinary';
+
+// By default, the CldImage component applies auto-format and auto-quality to all delivery URLs for optimized delivery.
+export default function Page() {
+  return (
+    <CldImage
+      src="cld-sample-5" // Use this sample image or upload your own via the Media Explorer
+      width="500" // Transform the image: auto-crop to square aspect_ratio
+      height="500"
+      crop={{
+        type: 'auto',
+        source: true
+      }}
+    />
+  );
+}
+
+
+<!DOCTYPE html>
+<head>
+  <title>Pusher Test</title>
+  <script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('09b18154cf59b6447fbe', {
+      cluster: 'mt1'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+    });
+  </script>
+</head>
+<body>
+  <h1>Pusher Test</h1>
+  <p>
+    Try publishing an event to channel <code>my-channel</code>
+    with event name <code>my-event</code>.
+  </p>
+</body>
+
+const Pusher = require("pusher");
+
+const pusher = new Pusher({
+  appId: "1985688",
+  key: "09b18154cf59b6447fbe",
+  secret: "8df11eedf37958f8a18d",
+  cluster: "mt1",
+  useTLS: true
+});
+
+pusher.trigger("my-channel", "my-event", {
+  message: "hello world"
+});

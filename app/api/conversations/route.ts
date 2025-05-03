@@ -39,6 +39,7 @@ export async function POST(request: Request) {
       return NextResponse.json(newConversation);
     }
 
+    // single coversation exisiting
     const exisitingConversations = await prisma.conversation.findMany({
       where: {
         OR: [
