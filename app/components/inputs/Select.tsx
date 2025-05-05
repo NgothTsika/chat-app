@@ -37,7 +37,7 @@ const Select: React.FC<SelectProps> = ({
               zIndex: 9999,
             }),
           }}
-          className={{ control: () => "text-sm" }}
+          classNames={{ control: () => "text-sm" }}
         />
       </div>
     </div>
