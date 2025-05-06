@@ -1,5 +1,3 @@
-import exp from "constants";
-import { set } from "lodash";
 import { create } from "zustand";
 
 interface ActiveListStore {
@@ -14,7 +12,7 @@ const useActiveList = create<ActiveListStore>((set) => ({
   add: (id) => set((state) => ({ members: [...state.members, id] })),
   remove: (id) =>
     set((state) => ({
-      members: state.members.filter((member) => member !== id),
+      members: state.members.filter((memberId) => memberId !== id),
     })),
   set: (ids) => set({ members: ids }),
 }));
