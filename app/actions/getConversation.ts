@@ -10,8 +10,14 @@ const getConversations = async () => {
 
   try {
     const conversations = await prisma.conversation.findMany({
-      orderBy: { lastMessageAt: "desc" },
-      where: { userIds: { has: currentUser.id } },
+      where: {
+        userIds: {
+          has: currentUser.id,
+        },
+      },
+      orderBy: {
+        lastMessageAt: "desc",
+      },
       include: {
         users: true,
         messages: {
@@ -22,8 +28,10 @@ const getConversations = async () => {
         },
       },
     });
+
     return conversations;
-  } catch (error: any) {
+  } catch (error) {
+    console.error("Error fetching conversations:", error);
     return [];
   }
 };
