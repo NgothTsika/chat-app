@@ -6,7 +6,7 @@ import React from "react";
 
 interface MobileItemProps {
   href: string;
-  icon: React.ReactNode;
+  icon: React.ElementType;
   active?: boolean;
   onClick?: () => void;
 }

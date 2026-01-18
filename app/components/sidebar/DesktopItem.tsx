@@ -6,7 +6,7 @@ import React from "react";
 
 interface DesktopItemProps {
   label: string;
-  icon: React.ReactNode;
+  icon: React.ElementType;
   href: string;
   onClick?: () => void;
   active?: boolean;
