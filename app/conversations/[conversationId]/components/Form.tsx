@@ -30,8 +30,10 @@ const Form = () => {
     });
   };
 
-  const handleUpload = (result: any) => {
-    const secureUrl = result?.info?.secure_url;
+  const handleUpload = (result: unknown) => {
+    const uploadResult = result as Record<string, unknown>;
+    const secureUrl = (uploadResult?.info as Record<string, unknown>)
+      ?.secure_url;
 
     if (!secureUrl) {
       console.error("Upload failed or secure_url missing:", result);

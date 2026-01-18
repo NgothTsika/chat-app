@@ -12,7 +12,7 @@ import GroupChatModal from "./GroupChatModal";
 import { User } from "@prisma/client";
 import { useSession } from "next-auth/react";
 import { pusherClient } from "@/app/libs/pusher";
-import { curry, find, update } from "lodash";
+import { find } from "lodash";
 
 interface ConversationListProps {
   initialItems: FullConversationType[];
@@ -59,7 +59,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
             };
           }
           return currentConversation;
-        })
+        }),
       );
     };
 
@@ -94,7 +94,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
       <aside
         className={clsx(
           `fixed inset-y-0 pb-20 lg:pb-0 lg:left-20 lg:w-80 lg:block overflow-y-auto border-r border-gray-200`,
-          isOpen ? "hidden" : "block w-full left-0"
+          isOpen ? "hidden" : "block w-full left-0",
         )}
       >
         <div className="px-5">

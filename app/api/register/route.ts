@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     if (!email || !name || !password) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -27,20 +27,20 @@ export async function POST(request: Request) {
     if (!user) {
       return NextResponse.json(
         { error: "User registration failed" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     return NextResponse.json({ success: true, user }, { status: 201 }); // ✅ Correct response
-  } catch (error: any) {
-    console.error("REGISTRATION ERROR:", error);
+  } catch {
+    console.error("REGISTRATION ERROR");
 
     return NextResponse.json(
       {
         error: "Internal Server Error",
         details: error instanceof Error ? error.message : "Unknown error",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

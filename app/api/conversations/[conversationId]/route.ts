@@ -4,12 +4,12 @@ import prisma from "@/app/libs/prismadb";
 import { pusherServer } from "@/app/libs/pusher";
 
 interface IParams {
-  conversationId?: String;
+  conversationId?: string;
 }
 
 export async function DELETE(
   request: Request,
-  { params }: { params: IParams }
+  { params }: { params: IParams },
 ) {
   try {
     const { conversationId } = params;
@@ -45,14 +45,14 @@ export async function DELETE(
         pusherServer.trigger(
           user.email,
           "conversation:remove",
-          existingConversation
+          existingConversation,
         );
       }
     });
 
     return NextResponse.json(deletedConversation);
-  } catch (error: any) {
-    console.log(error, "ERROR_CONVERSTION_DELETE");
+  } catch {
+    console.log("ERROR_CONVERSTION_DELETE");
     return new NextResponse("Internal Error", { status: 500 });
   }
 }

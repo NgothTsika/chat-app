@@ -40,8 +40,8 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   });
   const image = watch("image");
 
-  const handleUpdoad = (result: any) => {
-    setValue("image", result?.info?.secure_url, {
+  const handleUpdoad = (result: Record<string, unknown>) => {
+    setValue("image", (result?.info as Record<string, unknown>)?.secure_url, {
       shouldValidate: true,
     });
   };

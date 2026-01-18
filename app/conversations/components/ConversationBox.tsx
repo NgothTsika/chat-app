@@ -2,7 +2,6 @@
 
 import { useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { Conversation, Message, User } from "@prisma/client";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import clsx from "clsx";
@@ -65,7 +64,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
     <div
       className={clsx(
         `w-full p-3 relative flex items-center space-x-3 hover:bg-neutral-100 rounded-lg transition cursor-pointer`,
-        selected ? "bg-neutral-100" : "bg-white"
+        selected ? "bg-neutral-100" : "bg-white",
       )}
       onClick={handleClick}
     >
@@ -89,7 +88,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
           <p
             className={clsx(
               `truncate text-sm`,
-              hasSeen ? "text-gray-500" : "text-black font-medium"
+              hasSeen ? "text-gray-500" : "text-black font-medium",
             )}
           >
             {lastMessageText}

@@ -23,8 +23,8 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(updatedUser);
-  } catch (error: any) {
-    console.log(error, "ERROR_SETTING");
+  } catch {
+    console.log("ERROR_SETTING");
     return new NextResponse("Internal Error", { status: 500 });
   }
 }

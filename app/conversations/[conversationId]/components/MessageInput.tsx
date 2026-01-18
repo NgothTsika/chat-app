@@ -8,7 +8,6 @@ interface MessageInputProps {
   type?: string;
   required?: boolean;
   register: UseFormRegister<FieldValues>;
-  errors: FieldErrors;
 }
 
 const MessageInput: React.FC<MessageInputProps> = ({
@@ -17,7 +16,6 @@ const MessageInput: React.FC<MessageInputProps> = ({
   type,
   required,
   register,
-  errors,
 }) => {
   return (
     <div className=" relative w-full">
