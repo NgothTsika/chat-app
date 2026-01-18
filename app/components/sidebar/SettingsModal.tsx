@@ -40,8 +40,8 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   });
   const image = watch("image");
 
-  const handleUpdoad = (result: Record<string, unknown>) => {
-    setValue("image", (result?.info as Record<string, unknown>)?.secure_url, {
+  const handleUpload = (result: any) => {
+    setValue("image", (result?.info as any)?.secure_url, {
       shouldValidate: true,
     });
   };
@@ -90,7 +90,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     alt="Avatar"
                   />
                   <CldUploadButton
-                    onSuccess={handleUpdoad}
+                    onSuccess={handleUpload}
                     uploadPreset="CHAT-APP"
                     options={{
                       maxFiles: 1,

@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
+import React from "react";
 
 interface DesktopItemProps {
   label: string;

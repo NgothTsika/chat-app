@@ -4,8 +4,8 @@ import ReactSelect from "react-select";
 
 interface SelectProps {
   label: string;
-  value?: Record<string, unknown>;
-  onChange: (value: Record<string, unknown>) => void;
+  value?: Record<string, unknown>[] | null;
+  onChange: (value: Record<string, unknown>[] | null) => void;
   options: Record<string, unknown>[];
   disabled?: boolean;
 }
@@ -23,10 +23,12 @@ const Select: React.FC<SelectProps> = ({
         {label}
       </label>
       <div className=" mt-2 ">
-        <ReactSelect
+        <ReactSelect<Record<string, unknown>, true>
           isDisabled={disabled}
           value={value}
-          onChange={onChange}
+          onChange={(newValue) =>
+            onChange(newValue as Record<string, unknown>[] | null)
+          }
           isMulti
           options={options}
           menuPortalTarget={document.body}

@@ -29,7 +29,6 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
     register,
     handleSubmit,
     setValue,
-    watch,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
