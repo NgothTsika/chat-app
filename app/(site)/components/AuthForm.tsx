@@ -153,7 +153,7 @@ const AuthForm = () => {
         <div>
           <p className="mt-6 text-sm text-center gap-2 text-gray-500">
             {variant === "LOGIN"
-              ? "New to kamaChat?"
+              ? "New to ChatsApp?"
               : "Already have an account?"}{" "}
             <button
               onClick={toggleVariant}
