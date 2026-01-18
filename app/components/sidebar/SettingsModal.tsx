@@ -40,10 +40,15 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   });
   const image = watch("image");
 
-  const handleUpload = (result: any) => {
-    setValue("image", (result?.info as any)?.secure_url, {
-      shouldValidate: true,
-    });
+  const handleUpload = (result: unknown) => {
+    const uploadResult = result as Record<string, unknown>;
+    setValue(
+      "image",
+      (uploadResult?.info as Record<string, unknown>)?.secure_url,
+      {
+        shouldValidate: true,
+      },
+    );
   };
 
   const onSubimt: SubmitHandler<FieldValues> = (data) => {

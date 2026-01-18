@@ -11,12 +11,7 @@ import MessageInput from "./MessageInput";
 const Form = () => {
   const { conversationId } = useConversation();
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm<FieldValues>({
+  const { register, handleSubmit, setValue } = useForm<FieldValues>({
     defaultValues: {
       message: "",
     },
